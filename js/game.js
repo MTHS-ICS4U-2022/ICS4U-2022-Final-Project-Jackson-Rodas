@@ -5,15 +5,22 @@
 // Created by: Jackson Naufal and Rodas Nega
 // this is the Phaser3 configuration file
 
+// These are the class imports
 import SplashScene from './splashScene.js'
 import TitleScene from './titleScene.js'
 import MenuScene from './menuScene.js'
 import GameScene from './gameScene.js'
 
-// the game scene
+// The mother teresa splash scene
 const splashScene = new SplashScene()
+
+// The frogger image, with title
 const titleScene = new TitleScene()
+
+// The other frog image, with click prompt
 const menuScene = new MenuScene()
+
+// The main game scnee with the frog, water, roads, cars, etc.
 const gameScene = new GameScene()
 
 
@@ -28,7 +35,10 @@ const config = {
     debug: true
     }
 },
+  // The background colour
   backgroundColor: 0xffffff,
+
+  // the scale of the background
   scale: {
    mode: Phaser.Scale.FIT,
     // we place it in the middle of the page.
@@ -36,13 +46,20 @@ const config = {
   }
 }
 
+// the game configuration
 const game = new Phaser.Game(config)
 
-// loads the scene
+// loads the scenes
+// Mother teresa splash scene
 game.scene.add('splashScene', splashScene)
-game.scene.add('titleScene', titleScene)
-game.scene.add('menuScene', MenuScene)
-game.scene.add('gameScene', GameScene)
 
+// frogger with title screen
+game.scene.add('titleScene', titleScene)
+
+// frog with click prompt scene
+game.scene.add('menuScene', MenuScene)
+
+// the game scene with frog, cars, water, etc
+game.scene.add('gameScene', GameScene)
 
 game.scene.start('splashScene')

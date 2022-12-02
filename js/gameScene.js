@@ -10,10 +10,12 @@ class GameScene extends Phaser.Scene {
   constructor () {
     super({key: 'gameScene'})
 
+    // what the background is
     this.background = null
   }
 
   init (data) {
+    // The colour
     this.cameras.main.setBackgroundColor('#ffffff')
   }
 
@@ -21,14 +23,19 @@ class GameScene extends Phaser.Scene {
    console.log('Game Scene')
 
    // images
+   // The background with water, frog, lakes, etc
   this.load.image('frogger-background', 'assets/frogger-background.png')
+
+   // the playable frog charactor
   this.load.image('frog', 'assets/frog.png')
  }
 
   create(data) {
+    // the image of the background
     this.background = this.add.image(0, 0, 'frogger-background')
     this.background.setOrigin(0,0)
 
+    // the frog with physics
     this.frog = this.physics.add.sprite(1920 / 2, 1080 - 50, 'frog').setScale(0.25)
   }
 
