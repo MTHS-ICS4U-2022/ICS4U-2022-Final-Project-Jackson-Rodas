@@ -5,6 +5,11 @@
 // Created by: Jackson Naufal and Rodas Nega
 // this is the Phaser3 configuration file
 
+import SplashScene from './splashScene.js'
+
+// the game scene
+const splashScene = new SplashScene()
+
 //* Game scene */
 const config = {
   type: Phaser.AUTO,
@@ -25,4 +30,8 @@ const config = {
 }
 
 const game = new Phaser.Game(config)
-console.log(game)
+
+// loads the scene
+game.scene.add('splashScene', splashScene)
+
+game.scene.start('splashScene')
