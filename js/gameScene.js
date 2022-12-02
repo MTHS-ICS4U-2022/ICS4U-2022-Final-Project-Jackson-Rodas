@@ -22,14 +22,14 @@ class GameScene extends Phaser.Scene {
 
    // images
   this.load.image('frogger-background', 'assets/frogger-background.png')
-  this.load.image('ship', 'assets/spaceShip.png')
+  this.load.image('frog', 'assets/frog.png')
  }
 
   create(data) {
     this.background = this.add.image(0, 0, 'frogger-background')
     this.background.setOrigin(0,0)
 
-    this.ship = this.physics.add.sprite(1920 / 2, 1080 - 50, 'ship')
+    this.frog = this.physics.add.sprite(1920 / 2, 1080 - 50, 'frog').setScale(0.25)
   }
 
   update(time, delta) {
