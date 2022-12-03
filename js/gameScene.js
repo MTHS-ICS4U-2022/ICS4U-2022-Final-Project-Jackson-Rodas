@@ -27,7 +27,7 @@ class GameScene extends Phaser.Scene {
   this.load.image('frogger-background', 'assets/frogger-background.png')
 
    // the playable frog charactor
-  this.load.image('frog', 'assets/frog.png')
+  this.load.image('frog', 'assets/alien.png')
  }
 
   create(data) {
