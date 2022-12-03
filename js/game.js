@@ -57,9 +57,9 @@ game.scene.add('splashScene', splashScene)
 game.scene.add('titleScene', titleScene)
 
 // frog with click prompt scene
-game.scene.add('menuScene', MenuScene)
+game.scene.add('menuScene', menuScene)
 
 // the game scene with frog, cars, water, etc
-game.scene.add('gameScene', GameScene)
+game.scene.add('gameScene', gameScene)
 
 game.scene.start('splashScene')

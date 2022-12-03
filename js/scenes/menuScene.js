@@ -23,7 +23,6 @@ class MenuScene extends Phaser.Scene {
   }
 
  preload () {
-
    // where we are in the console
    console.log('Menu Scene')
 
@@ -32,7 +31,6 @@ class MenuScene extends Phaser.Scene {
    this.load.image('menuSceneBackground', 'assets/menuScene.jpg')
    // the start button png
   this.load.image('startButton', 'assets/start.png')
-   
  }
 
   create(data) {

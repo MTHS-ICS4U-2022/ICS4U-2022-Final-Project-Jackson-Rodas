@@ -12,6 +12,8 @@ class GameScene extends Phaser.Scene {
 
     // what the background is
     this.background = null
+
+    this.frog = null
   }
 
   init (data) {
