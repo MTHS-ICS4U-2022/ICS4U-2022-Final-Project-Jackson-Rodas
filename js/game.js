@@ -6,9 +6,9 @@
 // this is the Phaser3 configuration file
 
 // These are the class imports
-import SplashScene from './splashScene.js'
-import TitleScene from './titleScene.js'
-import MenuScene from './menuScene.js'
+import SplashScene from './scenes/splashScene.js'
+import TitleScene from './scenes/titleScene.js'
+import MenuScene from './scenes/menuScene.js'
 import GameScene from './gameScene.js'
 
 // The mother teresa splash scene
