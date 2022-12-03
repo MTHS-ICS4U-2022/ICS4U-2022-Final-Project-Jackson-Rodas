@@ -6,8 +6,6 @@
 // this is the Phaser3 configuration file
 
 // These are the class imports
-console.log('Hello')
-console.log('Hello2')
 import SplashScene from './scenes/splashScene.js'
 import TitleScene from './scenes/titleScene.js'
 import MenuScene from './scenes/menuScene.js'
