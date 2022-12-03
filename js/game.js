@@ -23,7 +23,6 @@ const menuScene = new MenuScene()
 // The main game scnee with the frog, water, roads, cars, etc.
 const gameScene = new GameScene()
 
-
 //* Game scene */
 const config = {
   type: Phaser.AUTO,
