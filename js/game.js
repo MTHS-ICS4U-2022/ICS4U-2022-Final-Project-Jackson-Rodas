@@ -1,29 +1,64 @@
 /* global Phaser */
 
-// Copycright (c) 2022 Rodas Nega All rights reerved
+// Copyright (c) 2022 Jackson Naufal and Rodas Nega All rights reserved
 //
-// Created by: Rodas Nega
-// Created on: Dec 2022
-// This is the Phaser3 configuration file
+// Created by: Jackson Naufal and Rodas Nega
+// this is the Phaser3 configuration file
 
-//* Game Scene */
+// These are the class imports
+import SplashScene from './scenes/splashScene.js'
+import TitleScene from './scenes/titleScene.js'
+import MenuScene from './scenes/menuScene.js'
+import GameScene from './gameScene.js'
+
+// The mother teresa splash scene
+const splashScene = new SplashScene()
+
+// The frogger image, with title
+const titleScene = new TitleScene()
+
+// The other frog image, with click prompt
+const menuScene = new MenuScene()
+
+// The main game scnee with the frog, water, roads, cars, etc.
+const gameScene = new GameScene()
+
+//* Game scene */
 const config = {
-  type: Phaser.AUTO, 
-  width: 1920,
+  type: Phaser.AUTO,
+  width: 1920, 
   height: 1080,
   physics: {
     default: 'arcade',
     arcade: {
-      debug: true
+    debug: true
     }
-  },
-  // set background color
-  backgroundColor: 0x5f6e7a,
+},
+  // The background colour
+  backgroundColor: 0xffffff,
+
+  // the scale of the background
   scale: {
-    mode: Phaser.Scale.FIT,
-    autocenter: Phaser.Scale.CENTER_BOTH  
+   mode: Phaser.Scale.FIT,
+    // we place it in the middle of the page.
+    autoCenter: Phaser.Scale.CENTER_BOTH
   }
 }
 
+// the game configuration
 const game = new Phaser.Game(config)
-console.log(game)
+
+// loads the scenes
+// Mother teresa splash scene
+game.scene.add('splashScene', splashScene)
+
+// frogger with title screen
+game.scene.add('titleScene', titleScene)
+
+// frog with click prompt scene
+game.scene.add('menuScene', menuScene)
+
+// the game scene with frog, cars, water, etc
+game.scene.add('gameScene', gameScene)
+
+game.scene.start('splashScene')
