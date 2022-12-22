@@ -16,6 +16,8 @@ class GameScene extends Phaser.Scene {
     // what the background is
     this.background = null
 
+    this.frog = null
+
   }
 
 init (data) {
@@ -40,12 +42,25 @@ preload() {
     this.background = this.add.image(0, 0, 'frogger-background')
     this.background.setOrigin(0,0)
 
-    const frog = new Frog(this, 1920 / 2, 1080 - 50, 'frog').setScale(0.25)
-    frog.update()
-    this.add.existing(frog)
+     //let frog = this.add.sprite(game.config.width/2, game.config.height/2, "frog")
+
+    let frog =new Frog({scene:this,x:1920/2,y:2080/2}).setScale(0.25)
+    
+    //let frog = this.add.sprite(game.config.width/2, game.config.height/ 2, "frog")
+
+    // this.frog = new Frog(this, 400, 300, 'frog')
+    // const frog = new Frog(this, 1920 / 2, 1080 - 50, 'frog').setScale(0.25)
+     //this.frog = new Frog(this, 1920 / 2, 1080 - 50, 'frog').setScale(0.25)
+      // frog = new Frog(this, 1920 / 2, 1080 - 50, 'frog').setScale(0.25)
+    // frog.create()
+    //const frog = this.add.frog(400, 300)
+   // frog.update()
+    //this.add.existing(frog)
   }
 
   update(time, delta) {
+    // this.frog.update(x, y)
+    // frog.update(time, delta)
   }
 
 
