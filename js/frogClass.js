@@ -7,26 +7,26 @@
 // This is the Frog class
 
 class Frog extends Phaser.GameObjects.Sprite {
-  constructor (scene, x, y) {
-     super(scene, 1920 / 2, 1080 - 50, 'frog')
-    
+  constructor (config) {
+     super(config.scene,config.x,config.y, "frog")
+     config.scene.add.existing(this)
+
+    this.setInteractive();
+    this.on('pointerdown',this.update,this)
   }
-
-   preload () {
-     console.log('Frog Sprite')
-   // images
   
-   // the playable frog charactor
-     this.frogImage = this.add.sprite('frog', 'assets/frog.png')
- }
-
   create(data) {
    // the frog with physics
-   this.frog = this.physics.add.sprite(1920 / 2, 1080 - 50, 'frog').setScale(0.25)
+   //this.frog = this.physics.add.sprite(1920 / 2, 1080 - 50, 'frog').setScale(0.25)
   }
   update(time, delta) {
+
+    // https://phaser.io/examples/v2/input/keyboard <-- use this link for keyboard input
+
+    this.y-= 100
+    //this.x += this.direction.x * this.speed * delta;
+    //this.y += this.direction.y * this.speed * delta;
      /* hidden() {
-    // frog.update()
     // fps is in 60 times a second
     // const keyUpObj = this.input.keyboard.addKey('UP')
     // if (keyUpObj.isDown === true) {
@@ -55,6 +55,14 @@ class Frog extends Phaser.GameObjects.Sprite {
   } */  
   }
 
-}                                                
+}       
+//Phaser.GameObjects.GameObjectFactory.register('frog', function (x, y) {
+//	const frog = new Frog(this.scene, x, y)
+
+//   this.displayList.add(frog)
+//    this.updateList.add(frog)
+
+//    return frog
+// })
 
 export default Frog
