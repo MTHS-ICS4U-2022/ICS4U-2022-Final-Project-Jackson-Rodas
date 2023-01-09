@@ -9,6 +9,7 @@
 import SplashScene from './scenes/splashScene.js'
 import TitleScene from './scenes/titleScene.js'
 import MenuScene from './scenes/menuScene.js'
+import WinScene from './scenes/winScene.js'
 import GameScene from './gameScene.js'
 
 // The mother teresa splash scene
@@ -22,6 +23,9 @@ const menuScene = new MenuScene()
 
 // The main game scnee with the frog, water, roads, cars, etc.
 const gameScene = new GameScene()
+
+const winScene = new WinScene()
+
 
 //* Game scene */
 const config = {
@@ -60,5 +64,7 @@ game.scene.add('menuScene', menuScene)
 
 // the game scene with frog, cars, water, etc
 game.scene.add('gameScene', gameScene)
+
+game.scene.add('winScene', winScene)
 
 game.scene.start('splashScene')
