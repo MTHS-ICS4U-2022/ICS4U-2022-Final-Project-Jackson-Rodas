@@ -9,6 +9,7 @@
 // importing frog class
 import Frog from './frogClass.js'
 
+
 class GameScene extends Phaser.Scene {
   constructor () {
     super({key: 'gameScene'})
@@ -29,7 +30,7 @@ preload() {
    console.log('Game Scene')
    // images
    // The background with water, frog, lakes, etc
-   this.load.image('frogger-background', 'assets/frogger-background.png')
+   this.load.image('frogger-background', 'assets/new-frogger-background.png')
 
    this.load.image('frog', 'assets/frog.png')
    // the playable frog charactor
@@ -45,6 +46,8 @@ preload() {
      //let frog = this.add.sprite(game.config.width/2, game.config.height/2, "frog")
 
     let frog =new Frog({scene:this,x:1920/2,y:2080/2}).setScale(0.25)
+
+    this.frog = frog
     
     //let frog = this.add.sprite(game.config.width/2, game.config.height/ 2, "frog")
 
@@ -59,11 +62,33 @@ preload() {
   }
 
   update(time, delta) {
-    // this.frog.update(x, y)
-    // frog.update(time, delta)
+    let keyW
+    let keyA
+    let keyS
+    let keyD
+    
+    keyW = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.W)
+    keyA = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.A)
+     keyS = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.S)
+     keyD = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.D)
+
+    if (keyW.isDown) {
+      this.frog.frogUp()
+      console.log("Up")
+    } else if (keyA.isDown){
+        this.frog.frogLeft()
+      console.log("Left")
+    } else if(keyS.isDown) {
+        this.frog.frogDown()
+      console.log("Down")
+    } else if(keyD.isDown) {
+        this.frog.frogRight()
+        console.log("Right")
+    }
+    if (this.frog.y < 60) {
+      this.scene.switch('winScene')
+    }
+    }
   }
-
-
-}
 
 export default GameScene
