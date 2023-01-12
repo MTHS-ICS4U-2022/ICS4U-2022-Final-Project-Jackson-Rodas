@@ -6,17 +6,15 @@
 // Created On: December 2nd 2022
 // This is the Frog class
 
+// import { gameScene } from "./game"
+
 export default class Frog extends Phaser.GameObjects.Sprite {
   constructor (config) {
      super(config.scene,config.x,config.y, "frog")
+     // https://www.html5gamedevs.com/topic/37607-add-matter-physics-body-to-gameobjectssprite/
+     config.scene.physics.world.enable(this)
      config.scene.add.existing(this)
-    
     this.speed = 10
-    }
-
-  frogMinimum() {
-    if (this.y = 60) {
-    }
   }
   
   frogUp() {
@@ -45,16 +43,6 @@ export default class Frog extends Phaser.GameObjects.Sprite {
     }
     this.x += this.speed
   }
-  
-  create(data) {
-   // the frog with physics
-   //this.frog = this.physics.add.sprite(1920 / 2, 1080 - 50, 'frog').setScale(0.25)
-    // this.cursors = this.input.keyboard.createCursorKeys()
-  }
-  update(time, delta) {
-    }
 
-    // https://stackoverflow.com/questions/58383619/how-to-use-a-s-d-w-keys-in-phaser 
-  
-    // https://phaser.io/examples/v2/input/keyboard <-- use this link for keyboard input 
+  // https://stackoverflow.com/questions/58383619/how-to-use-a-s-d-w-keys-in-phaser 
 }       
