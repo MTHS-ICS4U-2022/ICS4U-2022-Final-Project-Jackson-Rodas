@@ -9,23 +9,13 @@
 export default class Car extends Phaser.GameObjects.Sprite {
   constructor (config) {
      super(config.scene,config.x,config.y, "car")
+     // https://www.html5gamedevs.com/topic/37607-add-matter-physics-body-to-gameobjectssprite/
+     config.scene.physics.world.enable(this)
      config.scene.add.existing(this)
 
     // Random Speed
     this.speed = Phaser.Math.Between(10, 20)
     }
-
-
-  carSpeed() {
-    console.log(this.speed)
-  }
-
-  carLeft() {
-    if (this.x < 60) {
-      this.x = 1920
-    }
-    this.x -= this.speed
-  }
 
   create(data) {
    // the frog with physics
