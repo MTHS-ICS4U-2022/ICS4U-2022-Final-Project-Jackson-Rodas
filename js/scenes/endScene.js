@@ -61,6 +61,9 @@ class EndScene extends Phaser.Scene {
 
     // this is the end music playing
     this.sound.play('endSceneMusic')
+
+    // this adjusts the music volume
+    this.sound.setVolume(0.5);
   }
 
   clickButton() {
