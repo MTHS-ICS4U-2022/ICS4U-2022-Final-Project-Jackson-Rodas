@@ -51,7 +51,7 @@ class EndScene extends Phaser.Scene {
     this.youWinSceneBackgroundImage.y = 1080 / 2
 
     // the sprite to make it in the center of the screen
-    this.startButton = this.add.sprite(1920 / 2, (1080 / 2) + 200, 'startButton')
+    this.startButton = this.add.sprite(1920 / 2, (1080 / 2) + 325, 'startButton')
 
     // the interaction used to clikc the start button
     this.startButton.setInteractive({ useHandCursor: true })
