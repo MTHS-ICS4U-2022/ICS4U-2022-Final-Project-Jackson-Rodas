@@ -51,7 +51,7 @@ class GameScene extends Phaser.Scene {
     this.load.audio('BackgroundAudio', 'assets/BackgroundMusic.wav')
 
     // Destruction Audio that plays when the frog gets hit
-    this.load.audio('Destruction', 'assets/DestructionMusic.mp3')
+    this.load.audio('Destruction', 'assets/SquashMusic.wav')
   }
 
   create(data) {
