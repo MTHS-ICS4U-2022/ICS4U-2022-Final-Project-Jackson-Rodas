@@ -65,6 +65,9 @@ class GameScene extends Phaser.Scene {
     // Background Audio starts
     this.sound.play('BackgroundAudio')
 
+    // this adjusts the music volume
+    this.sound.setVolume(0.5);
+
     // calling and setting the frog
     let frog = new Frog({scene:this,x:1920/2,y:2080/2}).setScale(0.175)
 
@@ -83,14 +86,19 @@ class GameScene extends Phaser.Scene {
   
     // the physics that detects if a car, and a frog collide
     this.physics.add.collider(this.frog, this.cars, function(frogCollide, carsCollide) {
+    
     // if the frog and a car collide, the frog gets destroyed
     this.frog.destroy()
+    
     // if the frog is destroyed this if statement becomes true
     if (!this.frog.destroy()) {
+    
       // the game scene audio stops playing
       this.sound.stopAll()
+    
       // the destruction audio when the frog dies playes
       this.sound.play('Destruction')
+    
       // the scene switches to the end scene
       this.scene.switch('endScene')
     }
