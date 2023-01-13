@@ -46,7 +46,7 @@ class WinScene extends Phaser.Scene {
     this.youWinSceneBackgroundImage.y = 1080 / 2
 
     // the sprite to make it in the center of the screen
-    this.startButton = this.add.sprite(1920 / 2, (1080 / 2)  + 250, 'startButton')
+    this.startButton = this.add.sprite(1920 / 2, (1080 / 2)  + 300, 'startButton')
 
     // the interaction used to clikc the start button
     this.startButton.setInteractive({ useHandCursor: true })
