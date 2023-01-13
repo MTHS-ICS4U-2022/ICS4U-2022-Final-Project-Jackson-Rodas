@@ -60,6 +60,9 @@ class MenuScene extends Phaser.Scene {
 
     // this starts the start menu music
     this.sound.play('startMenuMusic')
+
+    // this adjusts the music volume
+    this.sound.setVolume(0.5);
   }
 
 
