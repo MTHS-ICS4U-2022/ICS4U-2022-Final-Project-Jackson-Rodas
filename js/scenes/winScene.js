@@ -54,7 +54,11 @@ class WinScene extends Phaser.Scene {
     // the functon called to start the game, and switch to the game scene
     this.startButton.on('pointerdown', () => this.clickButton())
 
+    // this is the win music playing
     this.sound.play('youWinMusic')
+
+    // this adjusts the music volume
+    this.sound.setVolume(0.5);
   }
   
   clickButton() {
