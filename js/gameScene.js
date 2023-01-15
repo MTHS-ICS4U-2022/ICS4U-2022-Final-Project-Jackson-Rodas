@@ -62,6 +62,12 @@ class GameScene extends Phaser.Scene {
 
     // Destruction Audio that plays when the frog gets hit
     this.load.audio('Destruction', 'assets/SquashMusic.wav')
+
+    // Noise everytime the frog hops in any direction
+    this.load.audio('frogNoise', 'assets/frogHop.wav')
+
+    // Noise everytime the frog crosses the finish line
+    this.load.audio('madeItNoise', 'assets/madeItNoise.mp3')
   }
 
   create(data) {
@@ -147,6 +153,8 @@ class GameScene extends Phaser.Scene {
       if (this.timer > 200) {
       this.timer = 0
       this.frog.frogUp() * delta
+      this.sound.play('frogNoise')
+      this.sound.setVolume(0.5)
       this.frog.angle = 0
       // console.log("Up")
       }
@@ -157,6 +165,8 @@ class GameScene extends Phaser.Scene {
       if (this.timer > 200) {
         this.timer = 0
         this.frog.frogLeft() * delta
+        this.sound.play('frogNoise')
+        this.sound.setVolume(0.5)
         this.frog.angle = 270
         // console.log("Left")
       }
@@ -167,6 +177,8 @@ class GameScene extends Phaser.Scene {
       if (this.timer > 200) {
         this.timer = 0
         this.frog.frogDown() * delta
+        this.sound.play('frogNoise')
+        this.sound.setVolume(0.5)
         this.frog.angle = 180
       // console.log("Down")
       }
@@ -177,6 +189,8 @@ class GameScene extends Phaser.Scene {
         if (this.timer > 200) {
         this.timer = 0
         this.frog.frogRight() * delta
+        this.sound.play('frogNoise')
+        this.sound.setVolume(0.5)
         this.frog.angle = 90
         //console.log("Right")
         }
@@ -188,6 +202,11 @@ class GameScene extends Phaser.Scene {
     if (this.frog.y < 60) {
       this.counting += 1
       this.frog.y = 1030
+
+      // Plays this sound at half volume everytime the frog
+      // makes it to the end
+      this.sound.play('madeItNoise')
+      this.sound.setVolume(0.5)
   
       if (this.counting == 1) {
         // frog one is 1070/2
