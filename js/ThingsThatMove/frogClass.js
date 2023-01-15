@@ -21,7 +21,9 @@ export default class Frog extends Phaser.GameObjects.Sprite {
     config.scene.add.existing(this)
 
     // Speed for the frog
-    this.speed = 10
+    // original speed is 10
+    // speed for testing is 100
+    this.speed = 80
   }
   
   frogUp() {

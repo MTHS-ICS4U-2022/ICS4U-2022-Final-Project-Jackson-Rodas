@@ -15,6 +15,7 @@ class EndScene extends Phaser.Scene {
 
     // this is the base start button
     this.startButton = null
+
   }
 
   init (data) {
@@ -32,7 +33,8 @@ class EndScene extends Phaser.Scene {
     this.load.image('youWinSceneBackground', './assets/YouLose.png')
 
     // this is the start button image
-    this.load.image('startButton', 'assets/start.png')
+    this.load.image('menuButton', 'assets/menuButton.png')
+
 
     // this is the end music sound
     this.load.audio('endSceneMusic', './assets/youLoseMusic.mp3')
@@ -51,7 +53,7 @@ class EndScene extends Phaser.Scene {
     this.youWinSceneBackgroundImage.y = 1080 / 2
 
     // the sprite to make it in the center of the screen
-    this.startButton = this.add.sprite(1920 / 2, (1080 / 2) + 325, 'startButton')
+    this.startButton = this.add.sprite(1920 / 2, (1080 / 2) + 325, 'menuButton')
 
     // the interaction used to clikc the start button
     this.startButton.setInteractive({ useHandCursor: true })
@@ -69,7 +71,7 @@ class EndScene extends Phaser.Scene {
   clickButton() {
 
     // when the button is clicked it will change to this game scene
-    this.scene.start('gameScene')
+    this.scene.start('menuScene')
 
     // this stops the audio when the scene switches
     this.sound.stopAll()

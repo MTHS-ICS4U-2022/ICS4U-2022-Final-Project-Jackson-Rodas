@@ -57,7 +57,7 @@ const config = {
   physics: {
     default: 'arcade',
     arcade: {
-    debug: false
+    debug: true
     }
 },
   // The background colour
@@ -68,6 +68,9 @@ const config = {
    mode: Phaser.Scale.FIT,
     // we place it in the middle of the page.
     autoCenter: Phaser.Scale.CENTER_BOTH
+  },
+  fps: {
+    target: 60
   }
 }
 

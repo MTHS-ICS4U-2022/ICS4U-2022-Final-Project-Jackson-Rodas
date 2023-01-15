@@ -39,6 +39,7 @@ export default class Car extends Phaser.GameObjects.Sprite {
     }
     if (this.random === 1) {
       this.x += this.speed;
+      this.angle = 180
       if (this.x > 1920) {
         this.x = 60;
       }

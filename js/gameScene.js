@@ -12,6 +12,9 @@ import Frog from './ThingsThatMove/frogClass.js'
 // importing car class
 import Car from './ThingsThatMove/carClass.js'
 
+// importing podium fromgs
+import Podium from './StationaryObjects/podiumFrog.js'
+
 class GameScene extends Phaser.Scene {
   constructor () {
     super({key: 'gameScene'})
@@ -19,11 +22,15 @@ class GameScene extends Phaser.Scene {
     // what the background is
     this.background = null
 
-    // what the frog starts ass
+    // what the frog starts as
     this.frog = null
 
-    // what the cars start ass
+    // what the cars start as
     this.cars = []
+
+    this.counting = 0
+
+    this.timer = 0
 
   }
 
@@ -44,6 +51,9 @@ class GameScene extends Phaser.Scene {
     // the playable frog charactor
     this.load.image('frog', 'assets/frog.png')
 
+    // the playable frog charactor
+    this.load.image('podium', 'assets/frogEnd.png')
+
     // the car charactor
     this.load.image('car', 'assets/car.png')
 
@@ -58,7 +68,7 @@ class GameScene extends Phaser.Scene {
     
     // the image of the background
     this.background = this.add.image(0, 0, 'frogger-background')
-
+  
     // the origin of the background
     this.background.setOrigin(0,0)
 
@@ -86,22 +96,21 @@ class GameScene extends Phaser.Scene {
   
     // the physics that detects if a car, and a frog collide
     this.physics.add.collider(this.frog, this.cars, function(frogCollide, carsCollide) {
-    
+  
     // if the frog and a car collide, the frog gets destroyed
-    this.frog.destroy()
+      this.frog.destroy()
+
+      if (!this.frog.destroy()) {
+        this.counting = 0
+        // the game scene audio stops playing
+        this.sound.stopAll()
     
-    // if the frog is destroyed this if statement becomes true
-    if (!this.frog.destroy()) {
+        // the destruction audio when the frog dies playes
+        this.sound.play('Destruction')
     
-      // the game scene audio stops playing
-      this.sound.stopAll()
-    
-      // the destruction audio when the frog dies playes
-      this.sound.play('Destruction')
-    
-      // the scene switches to the end scene
-      this.scene.switch('endScene')
-    }
+        // the scene switches to the end scene
+        this.scene.switch('endScene')
+      }
   }.bind(this))
   }
 
@@ -130,34 +139,85 @@ class GameScene extends Phaser.Scene {
 
     // this allows the D input
     keyD = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.D)
-
     // if the W key is down, you move up
     if (keyW.isDown) {
+     this.timer += delta
+      if (this.timer > 200) {
+      this.timer = 0
       this.frog.frogUp()
+      this.frog.angle = 0
       // console.log("Up")
-
+      }
+      
     // if the A key is down, you move left
     } else if (keyA.isDown){
+      this.timer += delta
+      if (this.timer > 200) {
+        this.timer = 0
         this.frog.frogLeft()
-      // console.log("Left")
+        this.frog.angle = 270
+        // console.log("Left")
+      }
 
     // if the S key is down, you move down
     } else if(keyS.isDown) {
+      this.timer += delta
+      if (this.timer > 200) {
+        this.timer = 0
         this.frog.frogDown()
+        this.frog.angle = 180
       // console.log("Down")
+      }
 
     // if the D key is down, you move right
     } else if(keyD.isDown) {
+        this.timer += delta
+        if (this.timer > 200) {
+        this.timer = 0
         this.frog.frogRight()
+        this.frog.angle = 90
         //console.log("Right")
+        }
     }
 
     // if the frog is at the end
     // the scene switches to the 
     // win scene
     if (this.frog.y < 60) {
-      this.sound.stopAll()
-      this.scene.switch('winScene')
+      this.counting += 1
+      this.frog.y = 1030
+  
+      if (this.counting == 1) {
+        // frog one is 1070/2
+        let podium1 = new Podium({scene:this,x:1070/2,y:80/2}).setScale(0.175)
+        console.log("madeItOnce")
+      }
+  
+      else if (this.counting == 2) {
+        // frog two is 1550/2
+        let podium2 = new Podium({scene:this,x:1550/2,y:80/2}).setScale(0.175)
+        console.log("madeItTwice")
+      }
+  
+      else if (this.counting == 3) {
+        // frog three is 2260/2 
+        let podium2 = new Podium({scene:this,x:2260/2,y:80/2}).setScale(0.175)
+        console.log("madeItThree")
+      }
+  
+      else if (this.counting == 4) {
+        // frog four is 2760/2
+        let podium2 = new Podium({scene:this,x:2760/2,y:80/2}).setScale(0.175)
+        console.log("madeItFour") 
+      }
+      else if (this.counting == 5) {
+        // this is when you beat the game
+        // by making it to the end 5 different times
+        this.counting = 0
+        console.log("madeItFive")
+        this.sound.stopAll()
+        this.scene.switch('winScene')
+      }  
     }
 
     // the car movement is updating
