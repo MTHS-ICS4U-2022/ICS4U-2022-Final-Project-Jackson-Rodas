@@ -140,11 +140,13 @@ class GameScene extends Phaser.Scene {
     // this allows the D input
     keyD = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.D)
     // if the W key is down, you move up
+    this.timer += delta
+    console.log(this.timer)
     if (keyW.isDown) {
      this.timer += delta
       if (this.timer > 200) {
       this.timer = 0
-      this.frog.frogUp()
+      this.frog.frogUp() * delta
       this.frog.angle = 0
       // console.log("Up")
       }
@@ -154,7 +156,7 @@ class GameScene extends Phaser.Scene {
       this.timer += delta
       if (this.timer > 200) {
         this.timer = 0
-        this.frog.frogLeft()
+        this.frog.frogLeft() * delta
         this.frog.angle = 270
         // console.log("Left")
       }
@@ -164,7 +166,7 @@ class GameScene extends Phaser.Scene {
       this.timer += delta
       if (this.timer > 200) {
         this.timer = 0
-        this.frog.frogDown()
+        this.frog.frogDown() * delta
         this.frog.angle = 180
       // console.log("Down")
       }
@@ -174,7 +176,7 @@ class GameScene extends Phaser.Scene {
         this.timer += delta
         if (this.timer > 200) {
         this.timer = 0
-        this.frog.frogRight()
+        this.frog.frogRight() * delta
         this.frog.angle = 90
         //console.log("Right")
         }
@@ -223,7 +225,7 @@ class GameScene extends Phaser.Scene {
     // the car movement is updating
     // for all of the cars in the scene
     for (let counter = 0; counter < this.cars.length; counter++) {
-      this.cars[counter].update()
+      this.cars[counter].update()  * delta
     }
   }
 }
