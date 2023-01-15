@@ -30,6 +30,8 @@ class GameScene extends Phaser.Scene {
 
     this.counting = 0
 
+    this.timer = 0
+
   }
 
   init (data) {
@@ -137,26 +139,45 @@ class GameScene extends Phaser.Scene {
 
     // this allows the D input
     keyD = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.D)
-
     // if the W key is down, you move up
     if (keyW.isDown) {
+     this.timer += delta
+      if (this.timer > 200) {
+      this.timer = 0
       this.frog.frogUp()
+      this.frog.angle = 0
       // console.log("Up")
-
+      }
+      
     // if the A key is down, you move left
     } else if (keyA.isDown){
+      this.timer += delta
+      if (this.timer > 200) {
+        this.timer = 0
         this.frog.frogLeft()
-      // console.log("Left")
+        this.frog.angle = 270
+        // console.log("Left")
+      }
 
     // if the S key is down, you move down
     } else if(keyS.isDown) {
+      this.timer += delta
+      if (this.timer > 200) {
+        this.timer = 0
         this.frog.frogDown()
+        this.frog.angle = 180
       // console.log("Down")
+      }
 
     // if the D key is down, you move right
     } else if(keyD.isDown) {
+        this.timer += delta
+        if (this.timer > 200) {
+        this.timer = 0
         this.frog.frogRight()
+        this.frog.angle = 90
         //console.log("Right")
+        }
     }
 
     // if the frog is at the end
