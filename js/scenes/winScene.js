@@ -15,6 +15,7 @@ class WinScene extends Phaser.Scene {
 
     // this sets the start button
     this.startButton = null
+
   }
 
   init (data) {
@@ -26,11 +27,14 @@ class WinScene extends Phaser.Scene {
 
     // writes the splash scene in the console
     console.log('Win Scene')
+  
     // the splash scene background image
     this.load.image('youWinSceneBackground', './assets/YouWin.png')
 
-    this.load.image('startButton', 'assets/start.png')
+    // this loads the start image 
+    this.load.image('menuButton', 'assets/menuButton.png')
 
+    // this loads the win music
     this.load.audio('youWinMusic', './assets/youWinMusic.mp3')
   }
 
@@ -46,7 +50,7 @@ class WinScene extends Phaser.Scene {
     this.youWinSceneBackgroundImage.y = 1080 / 2
 
     // the sprite to make it in the center of the screen
-    this.startButton = this.add.sprite(1920 / 2, (1080 / 2)  + 300, 'startButton')
+    this.startButton = this.add.sprite(1920 / 2, (1080 / 2)  + 300, 'menuButton')
 
     // the interaction used to clikc the start button
     this.startButton.setInteractive({ useHandCursor: true })
@@ -64,7 +68,7 @@ class WinScene extends Phaser.Scene {
   clickButton() {
 
     // when the button is clicked it will change to this game scene
-    this.scene.start('gameScene')
+    this.scene.start('menuScene')
 
     // this stops the audio
     this.sound.stopAll()
