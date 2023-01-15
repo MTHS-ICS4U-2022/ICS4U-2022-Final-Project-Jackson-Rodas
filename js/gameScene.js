@@ -150,7 +150,7 @@ class GameScene extends Phaser.Scene {
     console.log(this.timer)
     if (keyW.isDown) {
      this.timer += delta
-      if (this.timer > 425) {
+      if (this.timer > 200) {
       this.timer = 0
       this.frog.frogUp() * delta
       this.sound.play('frogNoise')
@@ -162,7 +162,7 @@ class GameScene extends Phaser.Scene {
     // if the A key is down, you move left
     } else if (keyA.isDown){
       this.timer += delta
-      if (this.timer > 425) {
+      if (this.timer > 200) {
         this.timer = 0
         this.frog.frogLeft() * delta
         this.sound.play('frogNoise')
@@ -174,7 +174,7 @@ class GameScene extends Phaser.Scene {
     // if the S key is down, you move down
     } else if(keyS.isDown) {
       this.timer += delta
-      if (this.timer > 425) {
+      if (this.timer > 200) {
         this.timer = 0
         this.frog.frogDown() * delta
         this.sound.play('frogNoise')
@@ -186,7 +186,7 @@ class GameScene extends Phaser.Scene {
     // if the D key is down, you move right
     } else if(keyD.isDown) {
         this.timer += delta
-        if (this.timer > 425) {
+        if (this.timer > 200) {
         this.timer = 0
         this.frog.frogRight() * delta
         this.sound.play('frogNoise')
