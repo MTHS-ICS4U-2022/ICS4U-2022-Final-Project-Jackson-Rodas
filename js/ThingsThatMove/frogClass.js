@@ -23,7 +23,8 @@ export default class Frog extends Phaser.GameObjects.Sprite {
     // Speed for the frog
     // original speed is 10
     // speed for testing is 100
-    this.speed = 80
+    // speed for gridlock is 83.5
+    this.speed = 83.5
   }
   
   frogUp() {
@@ -40,8 +41,8 @@ export default class Frog extends Phaser.GameObjects.Sprite {
   frogDown() {
 
     // this adds the minimum movement for the frog going down
-    if (this.y > 1030)
-      this.y = 1030
+    if (this.y > 956.5)
+      this.y = 956.5
 
     // this adds the speed in the down direction
     this.y += this.speed
@@ -50,8 +51,8 @@ export default class Frog extends Phaser.GameObjects.Sprite {
   frogLeft() {
   
     // this adds the minimum movement for the frog going left
-    if (this.x < 60) {
-      this.x = 60
+    if (this.x < 130) {
+      this.x = 130
     }
   
     // this adds the speed in the left direction
@@ -61,8 +62,8 @@ export default class Frog extends Phaser.GameObjects.Sprite {
   frogRight() {
   
     // this adds the maximum movement for the frog going right
-    if (this.x > 1860) {
-      this.x = 1860
+    if (this.x > 1800) {
+      this.x = 1800
     }
     
     // this adds the speed in the right direction
