@@ -1,4 +1,4 @@
-/* global Phaser */
+  /* global Phaser */
 
 // Copyright (c) 2022 Jackson Naufal and Rodas Nega All rights reserved
 //
@@ -85,7 +85,7 @@ class GameScene extends Phaser.Scene {
     this.sound.setVolume(0.5);
 
     // calling and setting the frog
-    let frog = new Frog({scene:this,x:1920/2,y:2080/2}).setScale(0.175)
+    const frog = new Frog({scene:this,x:1920/2,y:2080/2}).setScale(0.175)
 
     // letting the frog = this.frog
     this.frog = frog
@@ -218,22 +218,13 @@ class GameScene extends Phaser.Scene {
         let podium2 = new Podium({scene:this,x:2260/2,y:80/2}).setScale(0.175)
         console.log("madeItThree")
       }
-  
-      else if (this.counting == 4) {
+      else {
         // frog four is 2760/2
         let podium2 = new Podium({scene:this,x:2760/2,y:80/2}).setScale(0.175)
         console.log("madeItFour") 
         this.sound.stopAll()
         this.scene.switch('winScene')
       }
-      // else if (this.counting == 5) {
-        // this is when you beat the game
-        // by making it to the end 5 different times
-        //this.counting = 0
-        //console.log("madeItFive")
-        //this.sound.stopAll()
-        //this.scene.switch('winScene')
-      //}  
     }
 
     // the car movement is updating
