@@ -21,7 +21,7 @@ export default class Car extends Phaser.GameObjects.Sprite {
     config.scene.add.existing(this)
 
     // Random Speed for each of the cars
-    this.speed = Phaser.Math.Between(10, 20)
+    this.speed = Phaser.Math.Between(5, 15)
     this.random = Phaser.Math.Between(1, 2)
   }
 
