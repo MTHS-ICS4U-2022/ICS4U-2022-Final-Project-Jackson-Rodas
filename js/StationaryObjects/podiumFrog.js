@@ -4,7 +4,7 @@
 //
 // Created by: Jackson Naufal and Rodas Nega
 // Created On: December 2nd 2022
-// This is the Frog class
+// This is the Podium Frog class
 
 export default class Podium extends Phaser.GameObjects.Sprite {
   constructor (config) {
@@ -13,5 +13,4 @@ export default class Podium extends Phaser.GameObjects.Sprite {
     // this adds the image to the scene
     config.scene.add.existing(this)
   }
-
-}       
+}

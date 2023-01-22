@@ -1,4 +1,4 @@
-/* global Phaser */
+  /* global Phaser */
 
 // Copyright (c) 2022 Jackson Naufal and Rodas Nega All rights reserved
 //
@@ -85,7 +85,7 @@ class GameScene extends Phaser.Scene {
     this.sound.setVolume(0.5);
 
     // calling and setting the frog
-    let frog = new Frog({scene:this,x:1920/2,y:2080/2}).setScale(0.175)
+    const frog = new Frog({scene:this,x:1920/2,y:2080/2}).setScale(0.175)
 
     // letting the frog = this.frog
     this.frog = frog
@@ -123,34 +123,27 @@ class GameScene extends Phaser.Scene {
   update(time, delta) {
 
     // this lets the W key have a value
-    let keyW
+    // this allows the W input
+    let keyW = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.W)
 
     // this lets the A key have a value
-    let keyA
+    // this allows the A input
+    let keyA = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.A)
 
     // this lets the S key have a value
-    let keyS
-
-    // this lets the D key have a value
-    let keyD
-
-    // this allows the W input
-    keyW = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.W)
-
-    // this allows the A input
-    keyA = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.A)
-
     // this allows the S input
-    keyS = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.S)
-
+    let keyS = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.S)
+    
+    // this lets the D key have a value
     // this allows the D input
-    keyD = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.D)
+    let keyD = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.D)
+
     // if the W key is down, you move up
     this.timer += delta
     console.log(this.timer)
     if (keyW.isDown) {
      this.timer += delta
-      if (this.timer > 200) {
+      if (this.timer > 425) {
       this.timer = 0
       this.frog.frogUp() * delta
       this.sound.play('frogNoise')
@@ -162,7 +155,7 @@ class GameScene extends Phaser.Scene {
     // if the A key is down, you move left
     } else if (keyA.isDown){
       this.timer += delta
-      if (this.timer > 200) {
+      if (this.timer > 425) {
         this.timer = 0
         this.frog.frogLeft() * delta
         this.sound.play('frogNoise')
@@ -174,7 +167,7 @@ class GameScene extends Phaser.Scene {
     // if the S key is down, you move down
     } else if(keyS.isDown) {
       this.timer += delta
-      if (this.timer > 200) {
+      if (this.timer > 425) {
         this.timer = 0
         this.frog.frogDown() * delta
         this.sound.play('frogNoise')
@@ -186,7 +179,7 @@ class GameScene extends Phaser.Scene {
     // if the D key is down, you move right
     } else if(keyD.isDown) {
         this.timer += delta
-        if (this.timer > 200) {
+        if (this.timer > 425) {
         this.timer = 0
         this.frog.frogRight() * delta
         this.sound.play('frogNoise')
@@ -225,20 +218,13 @@ class GameScene extends Phaser.Scene {
         let podium2 = new Podium({scene:this,x:2260/2,y:80/2}).setScale(0.175)
         console.log("madeItThree")
       }
-  
-      else if (this.counting == 4) {
+      else {
         // frog four is 2760/2
         let podium2 = new Podium({scene:this,x:2760/2,y:80/2}).setScale(0.175)
         console.log("madeItFour") 
-      }
-      else if (this.counting == 5) {
-        // this is when you beat the game
-        // by making it to the end 5 different times
-        this.counting = 0
-        console.log("madeItFive")
         this.sound.stopAll()
         this.scene.switch('winScene')
-      }  
+      }
     }
 
     // the car movement is updating
